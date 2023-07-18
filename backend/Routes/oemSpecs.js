@@ -1,18 +1,19 @@
 const express = require("express");
-const {
-  getOEMCarModels,
-  getAllOEMCars,
-  FilterOEMcars,
-} = require("../controllers/oemSpecs");
-const app = express.Router();
+const { Oem_model } = require("../models/oemSpecs.js");
 
-// All cars Route
-app.get("/", getAllOEMCars);
+const OemRouter = express.Router();
 
-// Search cars by name Route
-app.get("/search", FilterOEMcars);
+OemRouter.post("/postoem", async (req, res) => {
+  const payload = req.body;
+  console.log(payload);
+  const Oem = new Oem_model(payload);
+  Oem.save()
+    .then((result) => {
+      return res
+        .status(200)
+        .json({ post: result, msg: "OEM's Added Successfully...!" });
+    })
+    .catch((err) => console.log(err));
+});
 
-// Get Available Cars model  Route
-app.get("/carModels", getOEMCarModels);
-
-module.exports = app;
+module.exports = { OemRouter };
