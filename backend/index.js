@@ -4,6 +4,8 @@ const cors = require("cors");
 const { Connection } = require("./Configuration/db");
 const User = require("./Routes/user");
 const { isAuthenticated } = require("./middlewares/auth");
+const Oem = require("./Routes/oemSpecs");
+const oldCars = require("./Routes/oldCar");
 
 const app = express();
 
@@ -15,6 +17,11 @@ app.use(express.urlencoded({ extended: true, limit: "500mb" }));
 
 // Public routes
 app.use("/users", User);
+
+// private Routes
+app.use("/cars", isAuthenticated, Oem);
+app.use("/oldCars", isAuthenticated, oldCars);
+
 
 //Home Route
 app.get("/",(req,res)=>{
