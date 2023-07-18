@@ -43,7 +43,7 @@ app.listen(PORT, async()=>{
     try{
    await Connection
    console.log('Connected To Database')
-   console.log(`server is running at http://localhost:${PORT}`)
+   console.log(`server is running at ${PORT}`)
     }
     catch(err){
         console.log(`Error while connecting to Database ${err}`)
