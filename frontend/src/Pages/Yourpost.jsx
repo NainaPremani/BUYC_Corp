@@ -6,6 +6,10 @@ import { BiCalendar } from "react-icons/bi";
 import { toast } from "react-toastify";
 import {
   Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
   FormControl,
   FormLabel,
   Heading,
@@ -18,6 +22,8 @@ import {
   ModalHeader,
   ModalOverlay,
   Select,
+  Spinner,
+  Text,
   useDisclosure,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
@@ -219,294 +225,292 @@ const Yourpost = () => {
 
   if (loading) {
     return (
-      <div class="loadingio-spinner-spinner-977el9wwy2v">
-        <div class="ldio-4j5ay0xf86g">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
       </div>
     );
   }
   if (myPost.length === 0) {
     return (
-      <div className="nopost">
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <p class="title">No Post Yet</p>
-              <p>You haven't posted Your Car yet</p>
-            </div>
-            <div class="flip-card-back">
-              <p class="title">Click Below to post now</p>
-              <Button
-                className="backbtn"
-                colorScheme="whatsapp"
-                onClick={() => navigate("/sellyourcar")}
-              >
-                Post Now
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Card align="center">
+        <CardHeader>
+          <Heading size="md"> Posts Dashboard</Heading>
+        </CardHeader>
+        <CardBody>
+          <Text>
+            You have no posts to make a new post click on Create Post Button
+          </Text>
+        </CardBody>
+        <CardFooter>
+          <Button colorScheme="blue" onClick={() => navigate("/sellyourcar")}>
+            Create Post
+          </Button>
+        </CardFooter>
+      </Card>
     );
-  }
-  return (
-    <div className="yourpost_container">
-      <div className="yourpost">
-        <Heading as="h1">Welcome {myName} </Heading>
-        <div className="postandsidebar">
-          <div className="sidebar">
-            <Heading as="h1">Welcome {myName} </Heading>
-            <FormLabel>Filter By Company</FormLabel>
-            <Select
-              placeholder="Filter By Company"
-              value={company}
-              onChange={(e) => handleCompanyData(e.target.value)}
-            >
-              <option value="Maruti">Maruti</option>
-              <option value="Hyundai">Hyundai</option>
-              <option value="Tata">Tata</option>
-              <option value="Mahindra">Mahindra</option>
-            </Select>
-
-            <FormLabel> Sort ByPrice</FormLabel>
-            <Select
-              placeholder="Sort By price"
-              value={price}
-              onChange={(e) => handlePrice(e.target.value)}
-            >
-              <option value="asc">Ascending</option>
-              <option value="desc">Desending</option>
-            </Select>
-
-            <FormLabel>Filter By color</FormLabel>
-            <Select
-              placeholder="Filter by Color"
-              value={color}
-              onChange={(e) => handleColorData(e.target.value)}
-            >
-              <option value="Red">Red</option>
-              <option value="White">White</option>
-              <option value="Black">Black</option>
-              <option value="Blue">Blue</option>
-            </Select>
-
-            <div className="buttons">
-              <Button
-                style={{ width: "100%" }}
-                onClick={() => setReset((prev) => prev + 1)}
-              >
-                Reset Filter
-              </Button>
-            </div>
-          </div>
-          <div className="posts">
-            {myPost &&
-              myPost.map((el) => {
-                return (
-                  <div className="galary" key={el._id}>
-                    <img
-                      key={el._id}
-                      src={el.images}
-                      alt="posts"
-                      className="items"
-                    />
-                    <div className="yearandbrand">
-                      <p>
-                        <BiCalendar></BiCalendar>
-                      </p>
-                      <p>{el.year}</p>
-                      <p>{el.car_Manufacturer}</p>
-                      <p>{el.model}</p>
-                    </div>
-                    <div className="kmdrove">
-                      <p>{`KMs on Odometer : ${el.KMs_on_Odometer}`}</p>
-                    </div>
-                    <div className="price">
-                      <p>{`₹ ${el.price}`}</p>
-                      <p>
-                        <RiHome4Fill></RiHome4Fill>
-                      </p>
-                      <p>{el.Registration_Place}</p>
-                    </div>
-                    {/* <div className="place">
-                            <p>{el.Registration_Place}</p>
-                        </div> */}
-                    <div className="color">
-                      <p>{`color:- ${el.Original_Paint}`}</p>
-                    </div>
-                    <div className="buttons">
-                      <Button onClick={() => handleUpdate(el._id)}>
-                        Update
-                      </Button>
-                      <Button onClick={() => handleOpenAlert(el._id)}>
-                        Delete
-                      </Button>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
-        </div>
-      </div>
-
-      <Modal
-        initialFocusRef={initialRef}
-        finalFocusRef={finalRef}
-        isOpen={isOpen}
-        onClose={onClose}
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody pb={6}>
-            <FormControl>
-              <FormLabel>Company</FormLabel>
-
+  } else {
+    return (
+      <div className="yourpost_container">
+        <div className="yourpost">
+          <Heading as="h1">Welcome {myName} </Heading>
+          <div className="postandsidebar">
+            <div className="sidebar">
+              <Heading as="h1">Welcome {myName} </Heading>
+              <FormLabel>Filter By Company</FormLabel>
               <Select
-                placeholder="Select Company"
-                style={{ backgroundColor: "tomato" }}
-                name="car_Manufacturer"
-                onChange={handleUpdatedChange}
+                placeholder="Filter By Company"
+                value={company}
+                onChange={(e) => handleCompanyData(e.target.value)}
               >
                 <option value="Maruti">Maruti</option>
                 <option value="Hyundai">Hyundai</option>
                 <option value="Tata">Tata</option>
                 <option value="Mahindra">Mahindra</option>
               </Select>
-            </FormControl>
 
-            <FormControl mt={4}>
-              <FormLabel>Model</FormLabel>
-              <Input
-                type="text"
-                placeholder="ex- Wagno R, vitara Breza, i-10,safari,thar"
-                name="model"
-                onChange={handleUpdatedChange}
-              />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Year</FormLabel>
-              <Input
-                type="number"
-                placeholder="ex- 2010,2021"
-                name="year"
-                onChange={handleUpdatedChange}
-              />
-            </FormControl>
-
-            <FormControl mt={4}>
-              <FormLabel>Paint</FormLabel>
+              <FormLabel> Sort ByPrice</FormLabel>
               <Select
-                placeholder="Select color"
-                style={{ backgroundColor: "tomato" }}
-                name="Original_Paint"
-                onChange={handleUpdatedChange}
+                placeholder="Sort By price"
+                value={price}
+                onChange={(e) => handlePrice(e.target.value)}
+              >
+                <option value="asc">Ascending</option>
+                <option value="desc">Desending</option>
+              </Select>
+
+              <FormLabel>Filter By color</FormLabel>
+              <Select
+                placeholder="Filter by Color"
+                value={color}
+                onChange={(e) => handleColorData(e.target.value)}
               >
                 <option value="Red">Red</option>
                 <option value="White">White</option>
                 <option value="Black">Black</option>
                 <option value="Blue">Blue</option>
               </Select>
-            </FormControl>
 
-            <FormControl mt={4}>
-              <FormLabel>No. of Accidents</FormLabel>
-              <Input
-                type="number"
-                placeholder="ex- 1,2,3"
-                name="Number_of_accidents_reported"
-                onChange={handleUpdatedChange}
-              />
-            </FormControl>
+              <div className="buttons">
+                <Button
+                  style={{ width: "100%" }}
+                  onClick={() => setReset((prev) => prev + 1)}
+                >
+                  Reset Filter
+                </Button>
+              </div>
+            </div>
+            <div className="posts">
+              {myPost &&
+                myPost.map((el) => {
+                  return (
+                    <div className="galary" key={el._id}>
+                      <img
+                        key={el._id}
+                        src={el.images}
+                        alt="posts"
+                        className="items"
+                      />
 
-            <FormControl mt={4}>
-              <FormLabel>Number_of_previous_buyers</FormLabel>
-              <Input
-                type="number"
-                placeholder="ex- 1,2,3...."
-                name="Number_of_previous_buyers"
-                onChange={handleUpdatedChange}
-              />
-            </FormControl>
+                      <div className="yearandbrand">
+                        <p>
+                          <BiCalendar></BiCalendar>
+                        </p>
 
-            <FormControl mt={4}>
-              <FormLabel>Registration_Place</FormLabel>
-              <Input
-                type="text"
-                placeholder="ex- city name...."
-                name="Registration_Place"
-                onChange={handleUpdatedChange}
-              />
-            </FormControl>
-            <FormControl mt={4}>
-              <FormLabel>KMs_on_Odometer</FormLabel>
-              <Input
-                type="number"
-                placeholder="ex- 12000,15000...."
-                name="KMs_on_Odometer"
-                onChange={handleUpdatedChange}
-              />
-            </FormControl>
-            <FormControl mt={4}>
-              <FormLabel>Major_Scratches</FormLabel>
-              <Input
-                type="number"
-                placeholder="ex- 1,2,3...."
-                name="Major_Scratches"
-                onChange={handleUpdatedChange}
-              />
-            </FormControl>
-            <FormControl mt={4}>
-              <FormLabel>price</FormLabel>
-              <Input
-                type="number"
-                placeholder="ex- 500000,110000"
-                name="price"
-                onChange={handleUpdatedChange}
-              />
-            </FormControl>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={updateMyData}>
-              Update
-            </Button>
-            <Button onClick={onClose}>Cancel</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-
-      <div className="alertbox">
-        {isAlertOpen && (
-          <div className="alert-box">
-            <div className="alert-content">
-              <p>Are you want to Delete this Post ?</p>
-              <button onClick={handleOk} className="firstbtn">
-                Yes
-              </button>
-              <button onClick={handleCloseAlert} className="secondbtn">
-                Cancel
-              </button>
+                        <p>{el.year}</p>
+                        <p>{el.car_Manufacturer}</p>
+                        <p>{el.model}</p>
+                      </div>
+                      <div className="kmdrove">
+                        <p>{`KMs on Odometer : ${el.KMs_on_Odometer}`}</p>
+                      </div>
+                      <div className="price">
+                        <p>{`₹ ${el.price}`}</p>
+                        <p>
+                          <RiHome4Fill></RiHome4Fill>
+                        </p>
+                        <p>{el.Registration_Place}</p>
+                      </div>
+                      {/* <div className="place">
+                            <p>{el.Registration_Place}</p>
+                        </div> */}
+                      <div className="color">
+                        <p>{`color:- ${el.Original_Paint}`}</p>
+                      </div>
+                      <div className="buttons">
+                        <Button onClick={() => handleUpdate(el._id)}>
+                          Update
+                        </Button>
+                        <Button onClick={() => handleOpenAlert(el._id)}>
+                          Delete
+                        </Button>
+                      </div>
+                    </div>
+                  );
+                })}
             </div>
           </div>
-        )}
+        </div>
+
+        <Modal
+          initialFocusRef={initialRef}
+          finalFocusRef={finalRef}
+          isOpen={isOpen}
+          onClose={onClose}
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Create your account</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody pb={6}>
+              <FormControl>
+                <FormLabel>Company</FormLabel>
+
+                <Select
+                  placeholder="Select Company"
+                  style={{ backgroundColor: "tomato" }}
+                  name="car_Manufacturer"
+                  onChange={handleUpdatedChange}
+                >
+                  <option value="Maruti">Maruti</option>
+                  <option value="Hyundai">Hyundai</option>
+                  <option value="Tata">Tata</option>
+                  <option value="Mahindra">Mahindra</option>
+                </Select>
+              </FormControl>
+
+              <FormControl mt={4}>
+                <FormLabel>Model</FormLabel>
+                <Input
+                  type="text"
+                  placeholder="ex- Wagno R, vitara Breza, i-10,safari,thar"
+                  name="model"
+                  onChange={handleUpdatedChange}
+                />
+              </FormControl>
+
+              <FormControl mt={4}>
+                <FormLabel>Year</FormLabel>
+                <Input
+                  type="number"
+                  placeholder="ex- 2010,2021"
+                  name="year"
+                  onChange={handleUpdatedChange}
+                />
+              </FormControl>
+
+              <FormControl mt={4}>
+                <FormLabel>Paint</FormLabel>
+                <Select
+                  placeholder="Select color"
+                  style={{ backgroundColor: "tomato" }}
+                  name="Original_Paint"
+                  onChange={handleUpdatedChange}
+                >
+                  <option value="Red">Red</option>
+                  <option value="White">White</option>
+                  <option value="Black">Black</option>
+                  <option value="Blue">Blue</option>
+                </Select>
+              </FormControl>
+
+              <FormControl mt={4}>
+                <FormLabel>No. of Accidents</FormLabel>
+                <Input
+                  type="number"
+                  placeholder="ex- 1,2,3"
+                  name="Number_of_accidents_reported"
+                  onChange={handleUpdatedChange}
+                />
+              </FormControl>
+
+              <FormControl mt={4}>
+                <FormLabel>Number_of_previous_buyers</FormLabel>
+                <Input
+                  type="number"
+                  placeholder="ex- 1,2,3...."
+                  name="Number_of_previous_buyers"
+                  onChange={handleUpdatedChange}
+                />
+              </FormControl>
+
+              <FormControl mt={4}>
+                <FormLabel>Registration_Place</FormLabel>
+                <Input
+                  type="text"
+                  placeholder="ex- city name...."
+                  name="Registration_Place"
+                  onChange={handleUpdatedChange}
+                />
+              </FormControl>
+              <FormControl mt={4}>
+                <FormLabel>KMs_on_Odometer</FormLabel>
+                <Input
+                  type="number"
+                  placeholder="ex- 12000,15000...."
+                  name="KMs_on_Odometer"
+                  onChange={handleUpdatedChange}
+                />
+              </FormControl>
+              <FormControl mt={4}>
+                <FormLabel>Major_Scratches</FormLabel>
+                <Input
+                  type="number"
+                  placeholder="ex- 1,2,3...."
+                  name="Major_Scratches"
+                  onChange={handleUpdatedChange}
+                />
+              </FormControl>
+              <FormControl mt={4}>
+                <FormLabel>price</FormLabel>
+                <Input
+                  type="number"
+                  placeholder="ex- 500000,110000"
+                  name="price"
+                  onChange={handleUpdatedChange}
+                />
+              </FormControl>
+            </ModalBody>
+
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3} onClick={updateMyData}>
+                Update
+              </Button>
+              <Button onClick={onClose}>Cancel</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+
+        <div className="alertbox">
+          {isAlertOpen && (
+            <div className="alert-box">
+              <div className="alert-content">
+                <p>Are you want to Delete this Post ?</p>
+                <button onClick={handleOk} className="firstbtn">
+                  Yes
+                </button>
+                <button onClick={handleCloseAlert} className="secondbtn">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default Yourpost;

@@ -1,5 +1,5 @@
 .darkBg {
-  background-color: rgba(159, 153, 153, 0.2);
+  /* background-color: rgba(159, 153, 153, 0.2); */
   width: 100vw;
   height: 100vh;
   z-index: 0;
@@ -18,8 +18,8 @@
 .modal {
   width: 250px;
   height: 170px;
-  background: white;
-  color: white;
+  background: whitesmoke;
+  color: black;
   z-index: 10;
   border-radius: 16px;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);

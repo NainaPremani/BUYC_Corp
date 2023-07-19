@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Css/Sellcar.css";
-import { FormLabel, Input, Select } from "@chakra-ui/react";
+import { FormLabel, Input, Select, Spinner } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -72,6 +72,7 @@ const SellcarPage = () => {
             alertError(data.error);
             setLoading(false);
           } else {
+            console.log("Added Car from Car Page-", data);
             alertSuccess("Successfully Posted...!");
             setLoading(false);
             navigate("/");
@@ -119,21 +120,21 @@ const SellcarPage = () => {
   };
   if (loading) {
     return (
-      <div class="loadingio-spinner-spinner-977el9wwy2v">
-        <div class="ldio-4j5ay0xf86g">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
       </div>
     );
   }

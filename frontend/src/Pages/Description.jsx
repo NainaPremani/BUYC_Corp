@@ -2,11 +2,21 @@ import React, { useEffect, useState } from "react";
 import "../Css/Description.css";
 import { Button, Heading, Text } from "@chakra-ui/react";
 
+let oemData = {
+  "Car manufacturers": "Kia Seltos",
+  "Name of the model": "HTX Plus AT D",
+  year_of_model: "2019",
+  Price: "15 Lakh",
+  available_color: ["red", "white", "blue"],
+  mileage: "18 kmpl",
+  power: "20 HP",
+};
+
 const Description = () => {
   const id = localStorage.getItem("postId");
   const [specData, setSpecData] = useState({});
-  const [oemData, setOemData] = useState([]);
-  console.log(id);
+  // const [oemData, setOemData] = useState(O);
+  // console.log(id);
 
   useEffect(() => {
     fetch(`https://buyc-corp-ts7x.onrender.com/sellcar/getdatabyid/${id}`, {
@@ -16,9 +26,9 @@ const Description = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log("result", result);
+        console.log("Description-result", result);
         setSpecData(result.data);
-        setOemData(result.Oem_data[0]);
+        // setOemData(result.Oem_data[0]);
       });
   }, []);
   return (
@@ -41,7 +51,7 @@ const Description = () => {
               <div className="flexbox">
                 <Heading as="h1">Year of Model</Heading>
                 <Text fontSize="lg">
-                  {specData.year ? specData.year : 2015}
+                  {specData?.year ? specData.year : 2015}
                 </Text>
               </div>
               <hr />
