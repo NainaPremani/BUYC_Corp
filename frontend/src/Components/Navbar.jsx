@@ -6,8 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setModalOpen } from "../Redux/action";
 
 const Navbar = () => {
-  // const { isOpen, onOpen, onClose } = useDisclosure();
-  // const btnRef = React.useRef();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const allState = useSelector((Store) => Store);
@@ -95,10 +93,7 @@ const Navbar = () => {
           </Link>
 
           <Link to={""}>
-            <li
-              // onClick={()=>setModalOpen(true)}
-              className="primaryBtn"
-            >
+            <li className="primaryBtn">
               <span class="material-symbols-outlined">logout</span>
             </li>
           </Link>
@@ -123,13 +118,17 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar">
-        <img
-          id="insta-logo"
-          src=""
-          alt="logo"
+        <h1
           onClick={() => navigate("/")}
-          style={{ cursor: "pointer", width: "5%" }}
-        />
+          style={{
+            cursor: "pointer",
+            width: "5%",
+            fontFamily: "fantasy",
+            padding: "0.5%",
+          }}
+        >
+          BuyCar
+        </h1>
 
         <ul className="nav-menu">{loginStatus()}</ul>
         <ul className="nav-mobile">{loginStatusMobile()}</ul>

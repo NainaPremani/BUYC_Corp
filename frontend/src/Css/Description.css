@@ -1,0 +1,69 @@
+
+ .Description_div{
+    margin-top: 100px;
+ }
+ .tableandphotodiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ .table1_div>h1{
+    color: blue;
+ }
+ .table1{
+    width: 35%;
+ }
+ .table{
+    cursor: pointer;
+    padding: 12px;
+   height: 70vh;
+   overflow: scroll;
+   box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+ }
+ .table::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+ .flexbox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+ }
+ .flexbox h1{
+    font-size: 20px;
+  color: red;
+ }
+ .flexbox p{
+    color: green;
+    font-weight: bolder;
+    font-style: italic;
+ }
+
+ .table2{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+ }
+
+ .table2 img{
+    width: 100%;
+    height: 200px;
+ }
+
+ .table3{
+    width: 35%;
+ }
+ .table3>.table1_div>.table{
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+ }
+ .colorbtn{
+    background-color: blue;
+    padding: 8px;
+    border-radius: 10px;
+    color: white;
+ }
+ .colorbtn:hover{
+    background: red;
+    color: white;
+ }

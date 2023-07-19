@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+
+import { useSelector } from 'react-redux';
+import Allroute from './Allroutes/Allroute';
 import './App.css';
+import Navbar from './Components/Navbar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import  Modal  from './Components/Modal';
 
 function App() {
+  const allState=useSelector((Store)=>Store)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <Navbar />
+   <Allroute />
+   <ToastContainer theme="dark" />
+   {allState.modalReducer.modalStatus && <Modal></Modal>}
     </div>
   );
 }

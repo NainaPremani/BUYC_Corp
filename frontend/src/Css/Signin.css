@@ -1,0 +1,120 @@
+.SignIn {
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginForm {
+  background-color: #f5f5f5;
+  padding: 13px;
+  border: 1px solid rgb(129, 121, 121);
+  border-radius: 1px;
+}
+.signInLogo {
+  width: 250px;
+  object-fit: contain;
+  padding: 10px 0px;
+}
+
+.loginForm2 {
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin-top: 5px;
+  border: 1px solid rgb(129, 121, 121);
+  border-radius: 1px;
+}
+
+#login-btn {
+  background-color: #1773ea;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+@keyframes circle-outer135 {
+  0% {
+    stroke-dashoffset: 25;
+  }
+
+  25% {
+    stroke-dashoffset: 0;
+  }
+
+  65% {
+    stroke-dashoffset: 301;
+  }
+
+  80% {
+    stroke-dashoffset: 276;
+  }
+
+  100% {
+    stroke-dashoffset: 276;
+  }
+}
+
+@keyframes circle-middle6123 {
+  0% {
+    stroke-dashoffset: 17;
+  }
+
+  25% {
+    stroke-dashoffset: 0;
+  }
+
+  65% {
+    stroke-dashoffset: 204;
+  }
+
+  80% {
+    stroke-dashoffset: 187;
+  }
+
+  100% {
+    stroke-dashoffset: 187;
+  }
+}
+
+@keyframes circle-inner162 {
+  0% {
+    stroke-dashoffset: 9;
+  }
+
+  25% {
+    stroke-dashoffset: 0;
+  }
+
+  65% {
+    stroke-dashoffset: 106;
+  }
+
+  80% {
+    stroke-dashoffset: 97;
+  }
+
+  100% {
+    stroke-dashoffset: 97;
+  }
+}
+
+@keyframes text-animation76 {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  50% {
+    clip-path: inset(0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 100%);
+  }
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Css/Signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Spinner } from "@chakra-ui/react";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -60,23 +61,21 @@ const Signup = () => {
 
   if (loading) {
     return (
-      <div className="loader">
-        <div id="wifi-loader">
-          <svg class="circle-outer" viewBox="0 0 86 86">
-            <circle class="back" cx="43" cy="43" r="40"></circle>
-            <circle class="front" cx="43" cy="43" r="40"></circle>
-            <circle class="new" cx="43" cy="43" r="40"></circle>
-          </svg>
-          <svg class="circle-middle" viewBox="0 0 60 60">
-            <circle class="back" cx="30" cy="30" r="27"></circle>
-            <circle class="front" cx="30" cy="30" r="27"></circle>
-          </svg>
-          <svg class="circle-inner" viewBox="0 0 34 34">
-            <circle class="back" cx="17" cy="17" r="14"></circle>
-            <circle class="front" cx="17" cy="17" r="14"></circle>
-          </svg>
-          <div class="text" data-text="Signing UP"></div>
-        </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
       </div>
     );
   }
@@ -85,8 +84,6 @@ const Signup = () => {
     <div className="signUp">
       <div className="form-container">
         <div className="form">
-          <img className="signUpLogo" src="" alt="" />
-
           <div>
             <input
               type="email"
@@ -128,14 +125,6 @@ const Signup = () => {
             />
           </div>
 
-          <p
-            className="loginPara"
-            style={{ fontSize: "12px", margin: "3px 0px" }}
-          >
-            By Signing up, You agree to out Terms, <br /> Privacy policy and
-            cookies Policy.
-          </p>
-
           <input
             type="submit"
             id="submit-btn"
@@ -149,7 +138,7 @@ const Signup = () => {
           <Link to="/signin">
             <span
               style={{
-                color: "tomato",
+                color: "blue",
                 cursor: "pointer",
                 fontWeight: "bolder",
               }}

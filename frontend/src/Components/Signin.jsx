@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../Redux/action";
+import { Spinner } from "@chakra-ui/react";
 // import { LoginContext } from '../Context/loginContext'
 
 const SignIn = () => {
@@ -24,7 +25,7 @@ const SignIn = () => {
     // checking email
     let resp = email.match(rejexEmail);
     if (!resp) {
-      return alertError("Invalid email id"); // return krne se aage ka code nhi chlega agar if statement true hoga to
+      return alertError("Invalid email id");
     }
 
     setLoading(true);
@@ -60,23 +61,21 @@ const SignIn = () => {
   };
   if (loading) {
     return (
-      <div className="loader">
-        <div id="wifi-loader">
-          <svg className="circle-outer" viewBox="0 0 86 86">
-            <circle className="back" cx="43" cy="43" r="40"></circle>
-            <circle className="front" cx="43" cy="43" r="40"></circle>
-            <circle className="new" cx="43" cy="43" r="40"></circle>
-          </svg>
-          <svg className="circle-middle" viewBox="0 0 60 60">
-            <circle className="back" cx="30" cy="30" r="27"></circle>
-            <circle className="front" cx="30" cy="30" r="27"></circle>
-          </svg>
-          <svg className="circle-inner" viewBox="0 0 34 34">
-            <circle className="back" cx="17" cy="17" r="14"></circle>
-            <circle className="front" cx="17" cy="17" r="14"></circle>
-          </svg>
-          <div className="text" data-text="Signing In"></div>
-        </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
       </div>
     );
   }
@@ -118,7 +117,7 @@ const SignIn = () => {
           <Link to="/signup">
             <span
               style={{
-                color: "tomato",
+                color: "blue",
                 cursor: "pointer",
                 fontWeight: "bolder",
               }}

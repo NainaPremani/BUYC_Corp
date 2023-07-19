@@ -1,0 +1,14 @@
+ 
+  {
+    "OEM_Specs":[
+    {
+   "Car manufacturers":"Kia Seltos",
+   "Name of the model":"HTX Plus AT D",
+   "Year of Model":2019,
+   "Price":"15 Lakh",
+   "Available colors":["red","white","blue"],
+   "Mileage":"18 kmpl",
+   "Power":"20 HP"
+    }
+]
+}
