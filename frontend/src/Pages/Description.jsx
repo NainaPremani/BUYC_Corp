@@ -3,13 +3,13 @@ import "../Css/Description.css";
 import { Button, Heading, Text } from "@chakra-ui/react";
 
 let oemData = {
-  "Car manufacturers": "Kia Seltos",
-  "Name of the model": "HTX Plus AT D",
   year_of_model: "2019",
   Price: "15 Lakh",
   available_color: ["red", "white", "blue"],
   mileage: "18 kmpl",
   power: "20 HP",
+  max_speed: 1000,
+  price_of_new_vehicle: 10000000,
 };
 
 const Description = () => {

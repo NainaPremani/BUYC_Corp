@@ -6,9 +6,8 @@ img {
 .navbar {
   display: flex;
   justify-content: space-around;
-  padding-top: 10px;
+  padding: 20px;
   box-shadow: 1px 5px 5px #e0dcdc;
-  padding-bottom: 1%;
 }
 
 ul {
