@@ -1,4 +1,4 @@
-# BuyCar_Corp MERN Stack BuyCar_Corpweb application
+# BuyCar_Corp MERN Stack application
 
 ## Description
 BuyCar is a website for users as well as dealers. Dealers can list their cars online for users who want to buy second-hand cars.
