@@ -268,7 +268,6 @@ const Yourpost = () => {
           <Heading as="h1">Welcome {myName} </Heading>
           <div className="postandsidebar">
             <div className="sidebar">
-              <Heading as="h1">Welcome {myName} </Heading>
               <FormLabel>Filter By Company</FormLabel>
               <Select
                 placeholder="Filter By Company"
