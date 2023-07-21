@@ -251,7 +251,7 @@ const Yourpost = () => {
         </CardHeader>
         <CardBody>
           <Text>
-            You have no posts to make a new post click on Create Post Button
+            You have no posts to make a new post click on "Create Post" button
           </Text>
         </CardBody>
         <CardFooter>
@@ -330,6 +330,7 @@ const Yourpost = () => {
                         </p>
 
                         <p>{el.year}</p>
+
                         <p>{el.car_Manufacturer}</p>
                         <p>{el.model}</p>
                       </div>
@@ -343,13 +344,11 @@ const Yourpost = () => {
                         </p>
                         <p>{el.Registration_Place}</p>
                       </div>
-                      {/* <div className="place">
-                            <p>{el.Registration_Place}</p>
-                        </div> */}
+
                       <div className="color">
                         <p>{`color:- ${el.Original_Paint}`}</p>
                       </div>
-                      <div className="buttons">
+                      <div className="buttons-edit">
                         <Button onClick={() => handleUpdate(el._id)}>
                           Update
                         </Button>
@@ -497,7 +496,7 @@ const Yourpost = () => {
           {isAlertOpen && (
             <div className="alert-box">
               <div className="alert-content">
-                <p>Are you want to Delete this Post ?</p>
+                <p>Please confirm to delete this post?</p>
                 <button onClick={handleOk} className="firstbtn">
                   Yes
                 </button>
