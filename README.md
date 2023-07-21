@@ -30,7 +30,7 @@ BuyCar is a website for users as well as dealers. Dealers can list their cars on
 7. Post Page:
    <img src = "./Images/CreatePost.png" alt="Create Post"/>
    - Users can add posts here.
-     <img src="./Images/Posts" alt="Posts" />
+   <img src="./Images/Posts.png" alt="Posts" />
    - Here User has two options to update details or to delete the post
      
 
