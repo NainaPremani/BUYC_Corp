@@ -8,7 +8,7 @@ BuyCar is a website for users as well as dealers. Dealers can list their cars on
 **Frontend**: React.js, Redux, Chakra UI, JavaScript, REST API, CSS3, HTML5  
 **Backend**: Node.js, Express.js, MongoDB  
 **Deployed On**: Vercel
-"https://frontend-nainapremani.vercel.app/"
+"[https://frontend-nainapremani.vercel.app/](https://buycar-corp.onrender.com)"
 
 ## Features
 
