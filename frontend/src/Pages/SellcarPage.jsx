@@ -46,7 +46,7 @@ const SellcarPage = () => {
   useEffect(() => {
     if (url) {
       setLoading(true);
-      fetch("https://buyc-corp-ts7x.onrender.com/sellcar/addcar", {
+      fetch("https://buycar-corp.onrender.com/sellcar/addcar", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

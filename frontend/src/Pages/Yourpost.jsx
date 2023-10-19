@@ -60,7 +60,7 @@ const Yourpost = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `https://buyc-corp-ts7x.onrender.com/sellcar/getpost/${
+      `https://buycar-corp.onrender.com/sellcar/getpost/${
         JSON.parse(localStorage.getItem("user"))._id
       }`,
       {
@@ -86,7 +86,7 @@ const Yourpost = () => {
     setLoading(true);
     console.log("query", query);
     fetch(
-      `https://buyc-corp-ts7x.onrender.com/sellcar/getfilterbycompany/${
+      `https://buycar-corp.onrender.com/sellcar/getfilterbycompany/${
         JSON.parse(localStorage.getItem("user"))._id
       }?company=${query}`,
       {
@@ -109,7 +109,7 @@ const Yourpost = () => {
     console.log("query", query);
     setLoading(true);
     fetch(
-      `https://buyc-corp-ts7x.onrender.com/sellcar/getfilterbycolor/${
+      `https://buycar-corp.onrender.com/sellcar/getfilterbycolor/${
         JSON.parse(localStorage.getItem("user"))._id
       }?color=${query}`,
       {
@@ -131,7 +131,7 @@ const Yourpost = () => {
     console.log("query", query);
     setLoading(true);
     fetch(
-      `https://buyc-corp-ts7x.onrender.com/sellcar/getsortbyprice/${
+      `https://buycar-corp.onrender.com/sellcar/getsortbyprice/${
         JSON.parse(localStorage.getItem("user"))._id
       }?price=${query}`,
       {
@@ -159,7 +159,7 @@ const Yourpost = () => {
     setLoading(true);
     try {
       const res = await axios.patch(
-        `https://buyc-corp-ts7x.onrender.com/sellcar/updatedata/${updatedRef.current}`,
+        `https://buycar-corp.onrender.com/sellcar/updatedata/${updatedRef.current}`,
         updateState
       );
       console.log(res.data);
@@ -197,7 +197,7 @@ const Yourpost = () => {
     setLoading(true);
     // Perform actions when OK button is clicked
     fetch(
-      `https://buyc-corp-ts7x.onrender.com/sellcar/deletepost/${updatedRef.current}`,
+      `https://buycar-corp.onrender.com/sellcar/deletepost/${updatedRef.current}`,
       {
         method: "DELETE",
         headers: {

@@ -29,7 +29,7 @@ const SignIn = () => {
     }
 
     setLoading(true);
-    fetch(`https://buyc-corp-ts7x.onrender.com/user/login`, {
+    fetch(`https://buycar-corp.onrender.com/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

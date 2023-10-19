@@ -19,7 +19,7 @@ const Description = () => {
   // console.log(id);
 
   useEffect(() => {
-    fetch(`https://buyc-corp-ts7x.onrender.com/sellcar/getdatabyid/${id}`, {
+    fetch(`https://buycar-corp.onrender.com/sellcar/getdatabyid/${id}`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("Buycartoken"),
       },

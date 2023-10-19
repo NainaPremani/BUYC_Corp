@@ -33,7 +33,7 @@ const Signup = () => {
 
     setLoading(true);
     // sending data to server
-    fetch(`https://buyc-corp-ts7x.onrender.com/user/signup`, {
+    fetch(`https://buycar-corp.onrender.com/user/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

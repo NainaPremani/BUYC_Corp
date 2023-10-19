@@ -54,7 +54,7 @@ const Home = () => {
   // getting all the post of login user  //
   useEffect(() => {
     setLoading(true);
-    fetch(`https://buyc-corp-ts7x.onrender.com/sellcar/getdata`, {
+    fetch(`https://buycar-corp.onrender.com/sellcar/getdata`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("Buycartoken"),
       },
@@ -74,7 +74,7 @@ const Home = () => {
     setLoading(true);
     console.log("query", query);
     fetch(
-      `https://buyc-corp-ts7x.onrender.com/sellcar/getalldatafilterbycompany?company=${query}`,
+      `https://buycar-corp.onrender.com/sellcar/getalldatafilterbycompany?company=${query}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Buycartoken"),
@@ -95,7 +95,7 @@ const Home = () => {
     console.log("query", query);
     setLoading(true);
     fetch(
-      `https://buyc-corp-ts7x.onrender.com/sellcar/getalldatafilterbycolor?color=${query}`,
+      `https://buycar-corp.onrender.com/sellcar/getalldatafilterbycolor?color=${query}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Buycartoken"),
@@ -115,7 +115,7 @@ const Home = () => {
     console.log("query", query);
     setLoading(true);
     fetch(
-      `https://buyc-corp-ts7x.onrender.com/sellcar/getalldatasortedbyprice?price=${query}`,
+      `https://buycar-corp.onrender.com/sellcar/getalldatasortedbyprice?price=${query}`,
       {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Buycartoken"),
@@ -141,7 +141,7 @@ const Home = () => {
     setLoading(true);
     try {
       const res = await axios.patch(
-        `https://buyc-corp-ts7x.onrender.com/sellcar/updatedata/${updatedRef.current}`,
+        `https://buycar-corp.onrender.com/sellcar/updatedata/${updatedRef.current}`,
         updateState
       );
       console.log(res.data);
@@ -179,7 +179,7 @@ const Home = () => {
     setLoading(true);
     // Perform actions when OK button is clicked
     fetch(
-      `https://buyc-corp-ts7x.onrender.com/sellcar/deletepost/${updatedRef.current}`,
+      `https://buycar-corp.onrender.com/sellcar/deletepost/${updatedRef.current}`,
       {
         method: "DELETE",
         headers: {
